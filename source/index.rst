@@ -36,4 +36,5 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
    chapter3-debian
    chapter4-firmware
    chapter5-internals
+   chapter6-prebuilt-images
    references
