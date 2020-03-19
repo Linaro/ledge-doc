@@ -6,7 +6,7 @@ Debian
 
 This chapter describes specific Debian LEDGE build and run.
 
-Supported platfroms
+Supported platforms
 ===================
  - armv7/armhf
  - armv8/arm64

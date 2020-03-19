@@ -6,7 +6,7 @@ OpenEmbedded
 
 This chapter describes specific OpenEmbedded LEDGE build and run.
 
-Supported platfroms
+Supported platforms
 ===================
 - armv7/ledge-multi-armv7 (qemu, ti-am572x, stm32mp157c-dk2);
 - armv8/ledge-multi-armv8 (qemu, synquacer)

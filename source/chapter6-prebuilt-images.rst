@@ -6,7 +6,7 @@ Prebuilt images
 
 This chapter describes how to download and use precompiled images
 
-Supported platfroms
+Supported platforms
 ===================
 - armv7/ledge-multi-armv7 (qemu)
 - armv8/ledge-multi-armv8 (qemu)

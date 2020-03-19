@@ -1,9 +1,9 @@
 ####################################################
-Linaro EDGE (LEDGE) reference platfrom documentation
+Linaro EDGE (LEDGE) reference platform documentation
 ####################################################
 
 The LEDGE documentation describes instructions to build, install
-and use varios features included in LEDGE linux reference platfrom. 
+and use varios features included in LEDGE linux reference platform.
 
 Contributing
 ============

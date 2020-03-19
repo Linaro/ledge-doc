@@ -3,7 +3,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ####################################################
-Linaro EDGE (LEDGE) reference platfrom documentation
+Linaro EDGE (LEDGE) reference platform documentation
 ####################################################
 
 Copyright © 2020 Linaro Limited and Contributors.

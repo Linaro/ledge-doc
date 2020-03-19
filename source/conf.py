@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # Build configuration file, created by
-# sphinx-quickstart 
+# sphinx-quickstart
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'LEDGE reference platfrom documentation'
+project = 'LEDGE reference platform documentation'
 copyright = '2020 Linaro Limited and Contributors'
 author = 'Linaro Limited and Contributors'
 
