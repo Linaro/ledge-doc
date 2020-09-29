@@ -34,7 +34,7 @@ armv7 with TF-A, OP-TEE and U-Boot:
 
 .. code-block:: bash
 
-	├── firmware.bin
+	├── firmware.uefi.uboot.bin
 	├── ledge-iot-ledge-qemuarm-20200312084843.rootfs.wic.gz
 	├── ledge-kernel-uefi-certs.ext4.img
 
@@ -53,6 +53,7 @@ armv7 with EDK2:
 
 .. code-block:: bash
 
+	├── firmware.uefi-edk2.bin 	
 	├── ledge-iot-ledge-qemuarm-20200312084843.rootfs.wic.gz
 
 .. code-block:: bash
@@ -72,7 +73,7 @@ armv8 with TF-A, OP-TEE and U-Boot:
 
 .. code-block:: bash
 
-	├── firmware.bin
+	├── firmware.uefi.uboot.bin
 	├── ledge-iot-ledge-qemuarm64-20200312084607.rootfs.wic.gz
 	├── ledge-kernel-uefi-certs.ext4.img
 
@@ -91,6 +92,7 @@ armv8 with EDK2
 
 .. code-block:: bash
 
+	├── firmware.uefi-edk2.bin 	
 	├── ledge-iot-ledge-qemuarm64-20200312084607.rootfs.wic.gz
 
 .. code-block:: bash
@@ -111,7 +113,7 @@ x86_64 with EDK2:
 
 .. code-block:: bash
 
-	├── ovmf.qcow2
+	├── firmware.uefi-edk2.bin 	
 	├── ledge-iot-ledge-qemux86-64-20200312090121.rootfs.wic.gz
 
 .. code-block:: bash
