@@ -33,8 +33,7 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
    chapter1-about
    overview
    chapter2-oe
-   chapter3-debian
-   chapter4-firmware
-   chapter5-internals
-   chapter6-prebuilt-images
+   chapter3-firmware
+   chapter4-internals
+   chapter5-prebuilt-images
    references
