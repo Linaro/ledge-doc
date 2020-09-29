@@ -5,7 +5,7 @@
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = LEDGE 
-SOURCEDIR     = source
+SOURCEDIR     = source user-guide
 BUILDDIR      = build
 
 # Put it first so that "make" without argument is like "make help".
@@ -17,4 +17,9 @@ help:
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@ SPHINXPROJ="dev-howto"  $(SPHINXBUILD) -M $@ source "$(BUILDDIR)/dev-howto" $(SPHINXOPTS) $(O)
+	@ SPHINXPROJ="user-guide" $(SPHINXBUILD) -M $@ user-guide "$(BUILDDIR)/user-guide" $(SPHINXOPTS) $(O)
+
+installpdf:
+	@ echo "installing pdfs to ${DESTDIR}"
+	@ find ./build -name '*.pdf' -print -exec cp {} ${DESTDIR} \;
