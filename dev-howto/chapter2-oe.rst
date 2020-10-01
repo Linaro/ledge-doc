@@ -1,8 +1,8 @@
 .. SPDX-License-Identifier: CC-BY-SA-4.0
 
-************
-OpenEmbedded
-************
+*****************************
+Build LEDGE RP (OpenEmbedded)
+*****************************
 
 This chapter describes specific OpenEmbedded LEDGE build and run.
 

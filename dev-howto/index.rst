@@ -2,9 +2,9 @@
    Copyright Linaro Limited, 2020
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-####################################################
-Linaro EDGE (LEDGE) reference platform documentation
-####################################################
+######################################################
+Linaro EDGE (LEDGE) Reference Platform Developer Howto
+######################################################
 
 Copyright © 2020 Linaro Limited and Contributors.
 
@@ -30,10 +30,9 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 .. toctree::
    :numbered:
 
-   chapter1-about
    overview
    chapter2-oe
    chapter3-firmware
    chapter4-internals
-   chapter5-prebuilt-images
+   abbreviations
    references

@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'LEDGE reference platform documentation'
+project = 'LEDGE reference platform developer howto'
 copyright = '2020 Linaro Limited and Contributors'
 author = 'Linaro Limited and Contributors'
 
@@ -138,7 +138,7 @@ if '-' in release:
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ledge.tex', project, author, 'manual'),
+    (master_doc, 'ledge-dev-howto.tex', project, author, 'manual'),
 ]
 
 

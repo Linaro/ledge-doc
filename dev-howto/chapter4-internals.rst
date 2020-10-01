@@ -18,26 +18,49 @@ U-Boot hardening
 
 Security is very important on EDGE nodes. Hardening and protecting the bootloader is the first step towards a secure system. U-boot command line is disabled and kernel boot parameters are present in LEDGE image.
 
-QEMU with TF-A and OP-TEE
-=========================
+WIC image
+=========
 
-Ledge image support only qemu versions from 4.1 and above. To load TF-A and OP-TEE with qemu you need to place files in the run directory and name them as bl1.bin, bl2.bin etc:
-
-.. code-block:: bash
-
-	│   ├── bl1.bin -> arm-trusted-firmware/bl1.bin
-	│   ├── bl2.bin -> arm-trusted-firmware/bl2.bin
-	│   ├── bl32.bin -> optee/tee-header_v2.bin
-	│   ├── bl32_extra1.bin -> optee/tee-pager_v2.bin
-	│   ├── bl32_extra2.bin -> optee/tee-pageable_v2.bin
-	│   ├── bl33.bin -> u-boot-ledge-qemuarm.bin
-
-Then -semihosting and -bios options are used to boot up qemu virtual machine:
+LEDGE WIC image for consists of 2 partiotions - ESP partition and linux rootfs partition. Disk image may have
+gpt lable type or may not, depends on varios hardware requirements.
 
 .. code-block:: bash
 
-	-d unimp -semihosting-config enable,target=native \
-      	-bios bl1.bin
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 512 bytes
+	I/O size (minimum/optimal): 512 bytes / 512 bytes
+	Disklabel type: gpt
+	Disk identifier: 5B707C60-D281-441C-A31C-73849DD89C49
+
+	Device        Start     End Sectors   Size Type
+	/dev/loop6p1     40  123319  123280  60.2M Microsoft basic data
+	/dev/loop6p2 123320 1861731 1738412 848.9M Linux filesystem
+
+ESP partition
+-------------
+
+ESP partition is about 60 Megabytes vfat partition wit the following structure:
+
+.. code-block:: bash
+
+	├── dtb
+	├── EFI
+	│   └── BOOT
+	│       └── bootarm.efi
+	└── ledge-initramfs.rootfs.cpio.gz
+
+Where:
+
+  - dtb - directory which contains all dtbs for all supported devices.
+
+  - bootarm.efi - linux kernel compiled as UEFI stab and which boots directly from firmware. (bootx64.efi for x86, bootaarch.efi)
+
+  - ledge-initramfs.rootfs.cpio.gz - initramfs is used to do initial initialization and find and mount rootfs.
+
+Run LEDGE RP under QEMU
+=======================
+
+To run LEDGE RP under qemu runqemu OpenEmbedded script can be used or helper qemu script described in LEDGE User Guide document.
 
 QEMU with firmware TPM (fTMP) in OP-TEE, TF-A and U-Boot
 ========================================================
