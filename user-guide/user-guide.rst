@@ -7,8 +7,8 @@ LEDGE RP USER GUIDE
 Introduction
 ============
 
-This document describes minimal steps to run LEDGE RP precompiled 
-images in virtual environment and play with it. It's recomended to
+This document describes minimal steps to run LEDGE RP precompiled
+images in virtual environment and play with it. It's recommended to
 walk over steps in this document for initial introduction with the
 Reference Platfrom.  Steps describe howto set up environment and
 run binaries and login to the shell. For more technical details and
@@ -18,9 +18,9 @@ Comments or change requests can be sent to team-ledge@linaro.org
 
 Supported platforms
 ===================
-- armv7/ledge-multi-armv7 (qemu)
-- armv8/ledge-multi-armv8 (qemu)
-- x86-64 (qemu)
+- armv7/ledge-multi-armv7 (QEMU)
+- armv8/ledge-multi-armv8 (QEMU)
+- x86-64 (QEMU)
 
 Steps
 ===========
@@ -28,7 +28,7 @@ Steps
 Download LEDGE RP binaries:
 --------------------------
 
-Download into current directory following files, depending on cpu architecture:
+Download into current directory following files, depending on CPU architecture:
 
 .. code-block:: bash
 
@@ -44,10 +44,10 @@ Download into current directory following files, depending on cpu architecture:
 | http://releases.linaro.org/components/ledge/
 
 
-Download qemu run script:
+Download QEMU run script:
 -------------------------
 
-Download helper script to run qemu with all required parameters.
+Download helper script to run QEMU with all required parameters.
 
 .. code-block:: bash
 
@@ -87,7 +87,7 @@ select one of the following options to run LEDGE RP under virtual machine:
 
     ./run_qemu.sh x86_64 ledge-iot-ledge-qemux86-64-<ts>.rootfs.wic ovmf
 
-You should see prints on console that firmware, booloader, linux boots.
+You should see prints on console that firmware, bootloader, linux boots.
 
 Login to the system
 -------------------
