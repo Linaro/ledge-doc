@@ -11,7 +11,7 @@ Applications
 
 ledge-iot image package set is alignment with Fedora IoT package set. List of the packages can be found in bitbake recipe ( https://github.com/Linaro/meta-ledge/blob/zeus/meta-ledge-sw/recipes-samples/packagegroups/packagegroup-ledge-iot.bb ).
 
-ledge-gateway image includes minimal console image with Ostree and Docker updates support. ( https://github.com/Linaro/meta-ledge/blob/zeus/meta-ledge-sw/recipes-samples/images/ledge-gateway.bb )
+ledge-gateway image includes minimal console image with OStree and Docker updates support. ( https://github.com/Linaro/meta-ledge/blob/zeus/meta-ledge-sw/recipes-samples/images/ledge-gateway.bb )
 
 U-Boot hardening
 ================
@@ -21,8 +21,8 @@ Security is very important on EDGE nodes. Hardening and protecting the bootloade
 WIC image
 =========
 
-LEDGE WIC image for consists of 2 partiotions - ESP partition and linux rootfs partition. Disk image may have
-gpt lable type or may not, depends on varios hardware requirements.
+LEDGE WIC image for consists of 2 partitions - ESP partition and linux rootfs partition. Disk image may have
+gpt lable type or may not, depends on various hardware requirements.
 
 .. code-block:: bash
 
@@ -60,12 +60,12 @@ Where:
 Run LEDGE RP under QEMU
 =======================
 
-To run LEDGE RP under qemu runqemu OpenEmbedded script can be used or helper qemu script described in LEDGE User Guide document.
+To run LEDGE RP under QEMU the ``run_qemu.sh`` OpenEmbedded script can be used or the helper QEMU script as described in LEDGE User Guide document.
 
-QEMU with firmware TPM (fTMP) in OP-TEE, TF-A and U-Boot
+QEMU with firmware TPM (fTPM) in OP-TEE, TF-A and U-Boot
 ========================================================
 
-LEDGE patches default dtb for qemu with ftpm entry.
+LEDGE patches default dtb for QEMU with ftpm entry.
 
 
 .. code-block:: bash 

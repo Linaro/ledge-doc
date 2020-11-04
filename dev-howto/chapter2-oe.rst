@@ -8,9 +8,9 @@ This chapter describes specific OpenEmbedded LEDGE build and run.
 
 Supported platforms
 ===================
-- armv7/ledge-multi-armv7 (qemu, ti-am572x, stm32mp157c-dk2);
-- armv8/ledge-multi-armv8 (qemu, synquacer)
-- x86-64 (qemu)
+- armv7/ledge-multi-armv7 (QEMU, ti-am572x, stm32mp157c-dk2);
+- armv8/ledge-multi-armv8 (QEMU, synquacer)
+- x86-64 (QEMU)
 
 Build steps
 ===========
@@ -33,7 +33,7 @@ armv7 family:
    MACHINE=ledge-multi-armv7 DISTRO=rpb source ./setup-environment build-rpb
    bitbake mc:qemuarm:ledge-iot mc:qemuarm:ledge-gateway ${FIRMWARE}
 
-Image files will apper under: armhf-glibc/deploy/images directory.
+Image files will appear under: armhf-glibc/deploy/images directory.
 
 Generated output will be:
 
@@ -171,7 +171,7 @@ Install and boot procedure
 OVMF firmware for different architectures can be downloaded from here: https://storage.kernelci.org/images/uefi/111bbcf87621/
 
 OE maintains script called 'runqemu'. This script automatically added to the path after source ./setup-environment is done. This script can be used to run
-qemu virtual machine with all required parameters to boot from image and run networking. Configuration file ledge-iot-ledge-qemuarm-*.qemuboot.conf is 
+QEMU virtual machine with all required parameters to boot from image and run networking. Configuration file ledge-iot-ledge-qemuarm-*.qemuboot.conf is 
 generated during the build process.
 
 Usage example usage:
@@ -304,7 +304,7 @@ OVMF:
       -cpu cortex-a57 -machine virt -nographic -net nic,model=virtio,macaddr=DE:AD:BE:EF:36:03 -net tap -m 1024 -monitor none \
       -bios ${OVMF} -drive id=disk0,file=${DISK},if=none,format=raw -device virtio-blk-device,drive=disk0 -m 4096 -smp 4 -nographic
 
-UBOOT:
+U-Boot:
 
 .. code-block:: bash
 
