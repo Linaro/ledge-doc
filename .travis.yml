@@ -57,7 +57,7 @@ deploy:
       branch: master
   - provider: pages
     github_token: $GITHUB_TOKEN
-    local_dir: "build/singlehtml"
+    local_dir: "build/user-guide/singlehtml"
     skip_cleanup: true
     on:
       branch: master
