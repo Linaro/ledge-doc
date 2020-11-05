@@ -30,7 +30,7 @@ install:
   - pip install --user Sphinx
 
 before_script:
-  - wget https://github.com/ftilmann/latexdiff/releases/download/1.2.1/latexdiff-1.2.1.tar.gz
+  - wget https://github.com/ftilmann/latexdiff/releases/download/1.2.1/latexdiff-1.2.1.tar.gz || wget http://mirror.tversu.ru/macports/distfiles/latexdiff/latexdiff-1.2.1.tar.gz
   - tar xvf latexdiff-1.2.1.tar.gz
   - export PATH=$PWD/latexdiff-1.2.1/:$PATH
 
