@@ -40,8 +40,8 @@ script:
   - make singlehtml
 
 before_deploy:
-  - cp ./build/latex/ledge.pdf build/ledge-$TRAVIS_TAG.pdf
-  - cp ./build/latex/ledge.pdf build/singlehtml/ledge-latest.pdf
+  - cp ./build/user-guide/latex/ledge-user-guide.pdf build/user-guide/singlehtml/
+  - cp ./build/dev-howto/latex/ledge-dev-howto.pdf   build/user-guide/singlehtml/
 
 deploy:
   - provider: releases
@@ -50,7 +50,7 @@ deploy:
       secure: 
     file_glob: true
     file:
-      - "build/ledge-*.pdf"
+      - "build/*/ledge-*.pdf"
     skip_cleanup: true
     on:
       tags: true
