@@ -42,6 +42,10 @@ script:
 before_deploy:
   - cp ./build/user-guide/latex/ledge-user-guide.pdf build/user-guide/singlehtml/
   - cp ./build/dev-howto/latex/ledge-dev-howto.pdf   build/dev-howto/singlehtml/
+  - cp -r ./build/user-guide/singlehtml/_static ./build/
+  - cp -r ./build/user-guide/singlehtml/_images ./build/
+  - cp -r ./build/dev-howto/singlehtml/_static ./build/
+  - cp -r ./build/dev-howto/singlehtml/_images ./build/
 
 deploy:
   - provider: releases
