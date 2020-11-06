@@ -18,6 +18,7 @@ help:
 %: Makefile
 	@ SPHINXPROJ="dev-howto"  $(SPHINXBUILD) -M $@ dev-howto "$(BUILDDIR)/dev-howto" $(SPHINXOPTS) $(O)
 	@ SPHINXPROJ="user-guide" $(SPHINXBUILD) -M $@ user-guide "$(BUILDDIR)/user-guide" $(SPHINXOPTS) $(O)
+	cp index_html.tmp ./build/index.html
 
 installpdf:
 	@ echo "installing pdfs to ${DESTDIR}"
