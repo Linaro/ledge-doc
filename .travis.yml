@@ -41,7 +41,7 @@ script:
 
 before_deploy:
   - cp ./build/user-guide/latex/ledge-user-guide.pdf build/user-guide/singlehtml/
-  - cp ./build/dev-howto/latex/ledge-dev-howto.pdf   build/user-guide/singlehtml/
+  - cp ./build/dev-howto/latex/ledge-dev-howto.pdf   build/dev-howto/singlehtml/
 
 deploy:
   - provider: releases
@@ -57,7 +57,7 @@ deploy:
       branch: master
   - provider: pages
     github_token: $GITHUB_TOKEN
-    local_dir: "build/user-guide/singlehtml"
+    local_dir: "build"
     skip_cleanup: true
     on:
       branch: master
