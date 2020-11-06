@@ -168,10 +168,10 @@ Install and boot procedure
 * DISK="buildid-rootfs.wic"  - WIC image generated on build procedure. Like ledge-gateway-ledge-qemuarm64-20200216225638.rootfs.wic.
 * OVMF="QEMU_EFI.fd" - OVMF is an EDK II based project to enable UEFI support for Virtual Machines. OVMF contains sample UEFI firmware for QEMU and KVM.
 
-OVMF firmware for different architectures can be downloaded from here: https://storage.kernelci.org/images/uefi/111bbcf87621/
+OVMF firmware for different architectures can be downloaded from here: https://storage.kernelci.org/images/uefi/111bbcf87621/ .
 
-OE maintains script called 'runqemu'. This script automatically added to the path after source ./setup-environment is done. This script can be used to run
-QEMU virtual machine with all required parameters to boot from image and run networking. Configuration file ledge-iot-ledge-qemuarm-*.qemuboot.conf is 
+OE maintains script called 'runqemu'.  This script automatically added to the path after source ./setup-environment is done. This script can be used to run
+QEMU virtual machine with all required parameters to boot from image and run networking. Configuration file ledge-iot-ledge-qemuarm-\*.qemuboot.conf is
 generated during the build process.
 
 Usage example usage:
@@ -330,7 +330,7 @@ x86_64
       -m 4096 -serial mon:stdio -show-cursor -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0
 
 Pre built binaries
-=================
+==================
 
 Pre built binaries can be downloaded with the following link:
 http://snapshots.linaro.org/components/ledge/oe/

@@ -26,7 +26,7 @@ Steps
 ===========
 
 Download LEDGE RP binaries:
---------------------------
+---------------------------
 
 Download into current directory following files, depending on CPU architecture:
 

@@ -4,7 +4,7 @@
 Firmware
 *********
 
-LEDGE uses 2 UEFI firmwares:
+LEDGE uses 2 [UEFI]_ firmwares:
 
 firmware.uefi-edk2.bin - for EDK2. (Prebuilt binaries are used.)
 
