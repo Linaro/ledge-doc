@@ -1,0 +1,10 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}LEDGE RP USER GUIDE}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Supported platforms}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Steps}{2}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Download LEDGE RP binaries:}{2}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Download QEMU run script:}{2}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Unpack rootfs image:}{3}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Run virtual machine:}{3}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}Login to the system}{3}{subsection.1.3.5}

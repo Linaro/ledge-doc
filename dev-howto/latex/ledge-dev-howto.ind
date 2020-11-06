@@ -1,0 +1,39 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter A
+  \item \spxentry {A64}, \hyperindexformat{\spxpagem}{13}
+  \item \spxentry {AArch32}, \hyperindexformat{\spxpagem}{13}
+  \item \spxentry {AArch64}, \hyperindexformat{\spxpagem}{13}
+  \item \spxentry {AArch64 state}, \hyperindexformat{\spxpagem}{13}
+
+  \indexspace
+  \bigletter E
+  \item \spxentry {EFI Loaded Image}, \hyperindexformat{\spxpagem}{13}
+  \item \spxentry {EL0}, \hyperindexformat{\spxpagem}{13}
+  \item \spxentry {EL1}, \hyperindexformat{\spxpagem}{13}
+  \item \spxentry {EL2}, \hyperindexformat{\spxpagem}{13}
+  \item \spxentry {EL3}, \hyperindexformat{\spxpagem}{13}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry {Logical Unit}\spxextra {LU}, \hyperindexformat{\spxpagem}{13}
+
+  \indexspace
+  \bigletter O
+  \item \spxentry {OEM}, \hyperindexformat{\spxpagem}{13}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry {SiP}, \hyperindexformat{\spxpagem}{13}
+
+  \indexspace
+  \bigletter U
+  \item \spxentry {UEFI}, \hyperindexformat{\spxpagem}{13}
+  \item \spxentry {UEFI Boot Services}, \hyperindexformat{\spxpagem}{13}
+  \item \spxentry {UEFI Runtime Services}, \hyperindexformat{\spxpagem}{13}
+
+\end{sphinxtheindex}

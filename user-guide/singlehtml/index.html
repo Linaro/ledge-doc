@@ -1,0 +1,216 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LEDGE reference platform user guide unknown-rev documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="linaro-edge-ledge-reference-platform-documentation">
+<h1>Linaro EDGE (LEDGE) reference platform documentation<a class="headerlink" href="#linaro-edge-ledge-reference-platform-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Copyright © 2020 Linaro Limited and Contributors.</p>
+<p>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+International License. To view a copy of this license, visit
+<a class="reference external" href="http://creativecommons.org/licenses/by-sa/4.0/">http://creativecommons.org/licenses/by-sa/4.0/</a> or send a letter to
+Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.</p>
+<a class="reference external image-reference" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" class="align-right" src="_images/cc-by-sa-4.0-88x31.png" /></a>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Revision History</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="13%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Date</th>
+<th class="head">Issue</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>17 Febrary 2020</td>
+<td>0.1</td>
+<td><ul class="first last simple">
+<li>Initial version</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<span id="document-user-guide"></span><div class="section" id="ledge-rp-user-guide">
+<h2>1. LEDGE RP USER GUIDE<a class="headerlink" href="#ledge-rp-user-guide" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>1.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>This document describes minimal steps to run LEDGE RP precompiled
+images in virtual environment and play with it. It’s recommended to
+walk over steps in this document for initial introduction with the
+Reference Platfrom.  Steps describe howto set up environment and
+run binaries and login to the shell. For more technical details and
+developer environment refer to LEDGE RP Developer Howto document.</p>
+<p>Comments or change requests can be sent to <a class="reference external" href="mailto:team-ledge&#37;&#52;&#48;linaro&#46;org">team-ledge<span>&#64;</span>linaro<span>&#46;</span>org</a></p>
+</div>
+<div class="section" id="supported-platforms">
+<h3>1.2. Supported platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>armv7/ledge-multi-armv7 (QEMU)</li>
+<li>armv8/ledge-multi-armv8 (QEMU)</li>
+<li>x86-64 (QEMU)</li>
+</ul>
+</div>
+<div class="section" id="steps">
+<h3>1.3. Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="download-ledge-rp-binaries">
+<h4>1.3.1. Download LEDGE RP binaries:<a class="headerlink" href="#download-ledge-rp-binaries" title="Permalink to this headline">¶</a></h4>
+<p>Download into current directory following files, depending on CPU architecture:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>├── firmware.uefi.uboot.bin
+├── firmware.uefi-edk2.bin
+├── ledge-iot-ledge-qemuarm-&lt;ts&gt;.rootfs.wic.gz
+├── ledge-kernel-uefi-certs.ext4.img
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Development daily builds can be found at:</div>
+<div class="line"><a class="reference external" href="https://snapshots.linaro.org/components/ledge/oe/">https://snapshots.linaro.org/components/ledge/oe/</a></div>
+<div class="line">(Linaro login required)</div>
+<div class="line">Stable releases can be found at:</div>
+<div class="line"><a class="reference external" href="http://releases.linaro.org/components/ledge/">http://releases.linaro.org/components/ledge/</a></div>
+</div>
+</div>
+<div class="section" id="download-qemu-run-script">
+<h4>1.3.2. Download QEMU run script:<a class="headerlink" href="#download-qemu-run-script" title="Permalink to this headline">¶</a></h4>
+<p>Download helper script to run QEMU with all required parameters.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://git.linaro.org/ledge/scripts.git/
+<span class="nb">cd</span> scripts/qemu
+</pre></div>
+</div>
+</div>
+<div class="section" id="unpack-rootfs-image">
+<h4>1.3.3. Unpack rootfs image:<a class="headerlink" href="#unpack-rootfs-image" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gunzip ledge-*rootfs.wic.gz
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-virtual-machine">
+<h4>1.3.4. Run virtual machine:<a class="headerlink" href="#run-virtual-machine" title="Permalink to this headline">¶</a></h4>
+<p>Depending on your CPU architecture and firmware (UEFI-EDK2 or UEFI-UBOOT)
+select one of the following options to run LEDGE RP under virtual machine:</p>
+<ul>
+<li><p class="first">armv7 with TF-A, OP-TEE and U-Boot:</p>
+<blockquote>
+<div><p>./run_qemu.sh arm ledge-iot-ledge-qemuarm-&lt;ts&gt;.rootfs.wic</p>
+</div></blockquote>
+</li>
+<li><p class="first">armv7 with EDK2:</p>
+<blockquote>
+<div><p>./run_qemu.sh arm ledge-iot-ledge-qemuarm-&lt;ts&gt;.rootfs.wic ovmf</p>
+</div></blockquote>
+</li>
+<li><p class="first">armv8 with TF-A, OP-TEE and U-Boot:</p>
+<blockquote>
+<div><p>./run_qemu.sh aarch64 ledge-iot-ledge-qemuarm64-&lt;ts&gt;.rootfs.wic</p>
+</div></blockquote>
+</li>
+<li><p class="first">armv8 with EDK2:</p>
+<blockquote>
+<div><p>./run_qemu.sh aarch64 ledge-iot-ledge-qemuarm64-&lt;ts&gt;.rootfs.wic ovmf</p>
+</div></blockquote>
+</li>
+<li><p class="first">x86_64 with EDK2:</p>
+<blockquote>
+<div><p>./run_qemu.sh x86_64 ledge-iot-ledge-qemux86-64-&lt;ts&gt;.rootfs.wic ovmf</p>
+</div></blockquote>
+</li>
+</ul>
+<p>You should see prints on console that firmware, bootloader, linux boots.</p>
+</div>
+<div class="section" id="login-to-the-system">
+<h4>1.3.5. Login to the system<a class="headerlink" href="#login-to-the-system" title="Permalink to this headline">¶</a></h4>
+<p>Default user is ‘ledge’ with the same ‘ledge’ password. User is added to
+sudoers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html#document-index">LEDGE reference platform user guide</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-user-guide">1. LEDGE RP USER GUIDE</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html#document-index">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020 Linaro Limited and Contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

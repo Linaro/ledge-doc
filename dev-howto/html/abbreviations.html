@@ -1,0 +1,164 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>5. Terms and abbreviations &#8212; LEDGE reference platform developer howto unknown-rev documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. References" href="references.html" />
+    <link rel="prev" title="4. LEDGE Internals" href="chapter4-internals.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="terms-and-abbreviations">
+<h1>5. Terms and abbreviations<a class="headerlink" href="#terms-and-abbreviations" title="Permalink to this headline">¶</a></h1>
+<p>This document uses the following terms and abbreviations.</p>
+<dl class="glossary docutils">
+<dt id="term-a64">A64</dt>
+<dd>The 64-bit Arm instruction set used in AArch64 state.
+All A64 instructions are 32 bits.</dd>
+<dt id="term-aarch32">AArch32</dt>
+<dd>Arm 32-bit architectures. AArch32 is a roll up term referring to all
+32-bit versions of the Arm architecture starting at ARMv4.</dd>
+<dt id="term-aarch64-state">AArch64 state</dt>
+<dd>The Arm 64-bit Execution state that uses 64-bit general purpose
+registers, and a 64-bit program counter (PC), Stack Pointer (SP), and
+exception link registers (ELR).</dd>
+<dt id="term-aarch64">AArch64</dt>
+<dd>Execution state provides a single instruction set, A64.</dd>
+<dt id="term-efi-loaded-image">EFI Loaded Image</dt>
+<dd>An executable image to be run under the UEFI environment,
+and which uses boot time services.</dd>
+<dt id="term-el0">EL0</dt>
+<dd>The lowest Exception level on AArch64. The Exception level that is used to execute
+user applications, in Non-secure state.</dd>
+<dt id="term-el1">EL1</dt>
+<dd>Privileged Exception level on AArch64. The Exception level that is used to execute
+Operating Systems, in Non-secure state.</dd>
+<dt id="term-el2">EL2</dt>
+<dd>Hypervisor Exception level on AArch64. The Exception level that is used to execute
+hypervisor code. EL2 is always in Non-secure state.</dd>
+<dt id="term-el3">EL3</dt>
+<dd>Secure Monitor Exception level on AArch64. The Exception level that is used to
+execute Secure Monitor code, which handles the transitions between
+Non-secure and Secure states.  EL3 is always in Secure state.</dd>
+<dt id="term-logical-unit-lu">Logical Unit (LU)</dt>
+<dd>A logical unit (LU) is an externally addressable, independent entity
+within a device. In the context of storage, a single device may use
+logical units to provide multiple independent storage areas.</dd>
+<dt id="term-oem">OEM</dt>
+<dd>Original Equipment Manufacturer. In this document, the final device
+manufacturer.</dd>
+<dt id="term-sip">SiP</dt>
+<dd>Silicon Partner. In this document, the silicon manufacturer.</dd>
+<dt id="term-uefi">UEFI</dt>
+<dd>Unified Extensible Firmware Interface.</dd>
+<dt id="term-uefi-boot-services">UEFI Boot Services</dt>
+<dd>Functionality that is provided to UEFI Loaded Images during the UEFI boot
+process.</dd>
+<dt id="term-uefi-runtime-services">UEFI Runtime Services</dt>
+<dd>Functionality that is provided to an Operating System after the
+ExitBootServices() call.</dd>
+</dl>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LEDGE reference platform developer howto</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. LEDGE Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2-oe.html">2. Build LEDGE RP (OpenEmbedded)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3-firmware.html">3. Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter4-internals.html">4. LEDGE Internals</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Terms and abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">6. References</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="chapter4-internals.html" title="previous chapter">4. LEDGE Internals</a></li>
+      <li>Next: <a href="references.html" title="next chapter">6. References</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020 Linaro Limited and Contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/abbreviations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

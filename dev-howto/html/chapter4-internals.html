@@ -1,0 +1,193 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>4. LEDGE Internals &#8212; LEDGE reference platform developer howto unknown-rev documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Terms and abbreviations" href="abbreviations.html" />
+    <link rel="prev" title="3. Firmware" href="chapter3-firmware.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ledge-internals">
+<h1>4. LEDGE Internals<a class="headerlink" href="#ledge-internals" title="Permalink to this headline">¶</a></h1>
+<p>This chapter discusses specific features for LEDGE RP.</p>
+<div class="section" id="applications">
+<h2>4.1. Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<p>ledge-iot image package set is alignment with Fedora IoT package set. List of the packages can be found in bitbake recipe ( <a class="reference external" href="https://github.com/Linaro/meta-ledge/blob/zeus/meta-ledge-sw/recipes-samples/packagegroups/packagegroup-ledge-iot.bb">https://github.com/Linaro/meta-ledge/blob/zeus/meta-ledge-sw/recipes-samples/packagegroups/packagegroup-ledge-iot.bb</a> ).</p>
+<p>ledge-gateway image includes minimal console image with OStree and Docker updates support. ( <a class="reference external" href="https://github.com/Linaro/meta-ledge/blob/zeus/meta-ledge-sw/recipes-samples/images/ledge-gateway.bb">https://github.com/Linaro/meta-ledge/blob/zeus/meta-ledge-sw/recipes-samples/images/ledge-gateway.bb</a> )</p>
+</div>
+<div class="section" id="u-boot-hardening">
+<h2>4.2. U-Boot hardening<a class="headerlink" href="#u-boot-hardening" title="Permalink to this headline">¶</a></h2>
+<p>Security is very important on EDGE nodes. Hardening and protecting the bootloader is the first step towards a secure system. U-boot command line is disabled and kernel boot parameters are present in LEDGE image.</p>
+</div>
+<div class="section" id="wic-image">
+<h2>4.3. WIC image<a class="headerlink" href="#wic-image" title="Permalink to this headline">¶</a></h2>
+<p>LEDGE WIC image for consists of 2 partitions - ESP partition and linux rootfs partition. Disk image may have
+gpt lable type or may not, depends on various hardware requirements.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Units: sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
+Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+Disklabel type: gpt
+Disk identifier: 5B707C60-D281-441C-A31C-73849DD89C49
+
+Device        Start     End Sectors   Size Type
+/dev/loop6p1     <span class="m">40</span>  <span class="m">123319</span>  <span class="m">123280</span>  <span class="m">60</span>.2M Microsoft basic data
+/dev/loop6p2 <span class="m">123320</span> <span class="m">1861731</span> <span class="m">1738412</span> <span class="m">848</span>.9M Linux filesystem
+</pre></div>
+</div>
+<div class="section" id="esp-partition">
+<h3>4.3.1. ESP partition<a class="headerlink" href="#esp-partition" title="Permalink to this headline">¶</a></h3>
+<p>ESP partition is about 60 Megabytes vfat partition wit the following structure:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>├── dtb
+├── EFI
+│   └── BOOT
+│       └── bootarm.efi
+└── ledge-initramfs.rootfs.cpio.gz
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li>dtb - directory which contains all dtbs for all supported devices.</li>
+<li>bootarm.efi - linux kernel compiled as UEFI stab and which boots directly from firmware. (bootx64.efi for x86, bootaarch.efi)</li>
+<li>ledge-initramfs.rootfs.cpio.gz - initramfs is used to do initial initialization and find and mount rootfs.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="run-ledge-rp-under-qemu">
+<h2>4.4. Run LEDGE RP under QEMU<a class="headerlink" href="#run-ledge-rp-under-qemu" title="Permalink to this headline">¶</a></h2>
+<p>To run LEDGE RP under QEMU the <code class="docutils literal notranslate"><span class="pre">run_qemu.sh</span></code> OpenEmbedded script can be used or the helper QEMU script as described in LEDGE User Guide document.</p>
+</div>
+<div class="section" id="qemu-with-firmware-tpm-ftpm-in-op-tee-tf-a-and-u-boot">
+<h2>4.5. QEMU with firmware TPM (fTPM) in OP-TEE, TF-A and U-Boot<a class="headerlink" href="#qemu-with-firmware-tpm-ftpm-in-op-tee-tf-a-and-u-boot" title="Permalink to this headline">¶</a></h2>
+<p>LEDGE patches default dtb for QEMU with ftpm entry.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tpm@0 <span class="o">{</span>
+        <span class="nv">compatible</span> <span class="o">=</span> <span class="s2">&quot;microsoft,ftpm&quot;</span><span class="p">;</span>
+        linux,sml-base <span class="o">=</span> &lt;0x0 0xC0000000&gt;<span class="p">;</span>
+        linux,sml-size <span class="o">=</span> &lt;0x10000&gt;<span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Once qemu is run you might see that tmp_ftpm_tee module privides TEE supplicant storage.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~ <span class="c1"># rmmod tpm_ftpm_tee &amp;&amp; modprobe tpm_ftpm_tee</span>
+~ <span class="c1"># tpm2_getrandom 256</span>
+<span class="o">[</span>  <span class="m">107</span>.057613<span class="o">]</span> audit: <span class="nv">type</span><span class="o">=</span><span class="m">1130</span> audit<span class="o">(</span><span class="m">1574348463</span>.038:33<span class="o">)</span>: <span class="nv">pid</span><span class="o">=</span><span class="m">1</span> <span class="nv">uid</span><span class="o">=</span><span class="m">0</span> <span class="nv">auid</span><span class="o">=</span><span class="m">4294967295</span> <span class="nv">ses</span><span class="o">=</span><span class="m">4294967295</span> <span class="nv">msg</span><span class="o">=</span><span class="s1">&#39;unit=tpm2-abrmd comm=&quot;systemd&quot; exe=&quot;/lib/systemd/systemd&quot; hostname=? addr=? terminal=? res=success&#39;</span>
+0xD0 0x31 0xA5 0xB9 0xF5 0xD1 0x5D 0x91 0x95 0x19 0x59 0x83 0x9F 0x7D 0x12 0x4F 0x8F 0xA2 0x8C 0xC2 0x10 0x71 0x09 0x84 0x6F 0x8B 0x1E 0xE6 0xD4 0xA9 0xA8 0xEB 0xB9 0xAB 0x39 0x92 0x66 0xCB 0x15 0x38 0x7C 0x3F 0x53 0x69 0x86 0xCC 0xA2 0x2A 0x33 0x6B 0x6D 0xFA 0x62 0xC3 0x70 0x93 0x9F 0x96 0xA8 0xFE 0xDA 0x4B 0x4F 0x15
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LEDGE reference platform developer howto</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. LEDGE Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2-oe.html">2. Build LEDGE RP (OpenEmbedded)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3-firmware.html">3. Firmware</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. LEDGE Internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#applications">4.1. Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#u-boot-hardening">4.2. U-Boot hardening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wic-image">4.3. WIC image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#esp-partition">4.3.1. ESP partition</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#run-ledge-rp-under-qemu">4.4. Run LEDGE RP under QEMU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qemu-with-firmware-tpm-ftpm-in-op-tee-tf-a-and-u-boot">4.5. QEMU with firmware TPM (fTPM) in OP-TEE, TF-A and U-Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="abbreviations.html">5. Terms and abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">6. References</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="chapter3-firmware.html" title="previous chapter">3. Firmware</a></li>
+      <li>Next: <a href="abbreviations.html" title="next chapter">5. Terms and abbreviations</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020 Linaro Limited and Contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/chapter4-internals.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
