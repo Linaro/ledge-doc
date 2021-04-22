@@ -25,6 +25,32 @@ Download sources:
 
 Setup environment and run build:
 --------------------------------
+
+Docker container:
+----------------
+
+In general LEDGE RP as OpenEmbedded build can be run in different environments (Ubuntu, Debian, various versions). But
+it is quite difficult to maintain various environments with different versions. Linaro does regular builds and CI tests 
+under a fixed Docker environment. That environment can be used for custom builds. Dockerfiles have a description of how
+to build an environment with the right package set. Dockerfiles are maintained in https://git.linaro.org/ci/dockerfiles.git
+buster-amd64/Dockerfile.
+
+To fetch and run Docker container you can use the following command:
+
+.. code-block:: bash
+
+   docker run -v `pwd`:/opt -w/opt -u buildslave -it linaro/jenkins-amd64-debian:buster  /bin/bash
+
+where:
+ 
+    -v `pwd`:/opt means provide current directory with sources inside Docker container.
+
+    -w/opt - work directory is /opt.
+
+    -u buildslave - current user is buildslave. This user is also added to sudoers.
+
+    -it linaro/jenkins-amd64-debian:buster  - is the container name to run.
+
 armv7 family:
 -------------
 
